@@ -1,0 +1,27 @@
+class Zombies extends ellipse {
+  float zombieSpeed;
+  float status;
+  
+  Zombies (float x, float y, float size, int status) {
+    super(x, y, size);
+    zombieSpeed = 0.001;
+    status = 0;
+  }
+      
+  void updateItself() {
+    //if no nearby zombies, go toward survivor
+    velocityX = (survivor.x - x) * zombieSpeed;
+    velocityY = (survivor.y  - y) * zombieSpeed;
+  }  
+      
+  void move() {
+    x += velocityX; 
+    y += velocityY;
+  }
+  
+  void display() {
+    fill(150, 255, 50, 150);
+    ellipse(x, y, size, size);
+  }
+}
+ 
