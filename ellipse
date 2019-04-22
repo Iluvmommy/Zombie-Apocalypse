@@ -1,0 +1,30 @@
+class ellipse {
+  float x;
+  float y;
+  float size;
+
+  
+  ellipse (float x, float y, float size){
+    this.x = x;
+    this.y = y;
+    this.size = size;
+  }
+  
+  boolean hit(ellipse other) {
+    return (dist( x, y, other.x, other.y) < size/2 + other.size/2);
+  }
+  
+  boolean near(ellipse other) {
+    return (dist( x, y, other.x, other.y) < size/2 + other.size/2 + 15); 
+  }
+  
+  //Thanks to Barney...
+  void avoid(ellipse other) {
+    float ang = atan2(y - other.y, x - other.x);
+    float dist = dist(x, y, other.x, other.y);
+    float force = map(dist, 0, size/2 + other.size/2 + 30, 5, 0);
+    
+    x += force * cos(ang);
+    y += force * sin(ang);
+  }
+}
