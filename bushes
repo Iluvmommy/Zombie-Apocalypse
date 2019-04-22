@@ -1,0 +1,12 @@
+class Bushes extends ellipse{  
+  float d;
+  
+  Bushes(float x, float y, float size) {
+    super(x, y, size);
+  }
+  
+  void display() {
+     fill( 100, 255, 50, 150);
+     ellipse(x, y, size, size);
+  }
+}
