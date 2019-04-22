@@ -1,0 +1,27 @@
+class survivor extends ellipse { 
+  float d;
+  float movingRate;
+  
+  survivor(float x, float y, float size) {
+    super(x, y, size);
+    movingRate = 0.5;
+  }
+  
+  void display() {
+    fill (255, 255, 142, 250);
+    stroke(100);
+    ellipse(x, y, size, size);
+  }
+  
+  void setDir (float xdir, float ydir) {
+    Xdir = xdir;
+    Ydir = ydir;
+  }
+  
+  void move() {
+    x += Xdir * movingRate;
+    y += Ydir * movingRate;
+    x = constrain(x, 0, width);
+    y = constrain(y, 0, height);
+  }
+}
