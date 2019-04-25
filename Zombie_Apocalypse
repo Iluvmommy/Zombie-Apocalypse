@@ -52,10 +52,7 @@ void setup(){
     }
   
   for(int i = 0; i < 6; i++) {
-      float x = random(width);
-      float y = random(height);
-      int s = round(random(30, 50));
-      bushes.add(new Bushes(x, y, s));
+      bushes.add(new Bushes( random(width), random(height), random(30, 50)));
     }
 }
 
@@ -71,7 +68,6 @@ void draw() {
     score = int(0.001 * millis()) - startingTime;
     fill(0);
     text(score, width/2, 20);
-    println(zombies.size());
     
     for (Zombies zombie : zombies) {
         if (survivor.hit(zombie)) scene = 3;
@@ -115,7 +111,7 @@ void draw() {
               zombie.zombieSpeed += 0.002;
             }
           }
-    }
+        }
     
         //bushes for loop
         for (int g = bushes.size()-1; g >= 0; g--) {
@@ -130,7 +126,7 @@ void draw() {
     
     survivor.display();
     survivor.move();
-    }
+}
 }
 
 
